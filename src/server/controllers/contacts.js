@@ -91,7 +91,7 @@ router.get('/', (req, res, next) => {
       res.status(500).json(error);
     }
   );
-};
+});
 
 /*
  * Save
@@ -115,7 +115,7 @@ router.post('/', (req, res) => {
  * @param {Object} res http response
  */
 router.get('/:id', (req, res, next) => {
-  let _id = req.params.id,
+  let _id = req.params.id;
   Contact.findById(_id).exec().then(
     // success
     contact => {
@@ -138,7 +138,7 @@ router.get('/:id', (req, res, next) => {
  * @param {Object} res http response
  */
 router.delete('/:id', (req, res, next) => {
-  let _id = req.params.id,
+  let _id = req.params.id;
   Contact.remove({"_id": _id}).exec().then(
       // success
       () => res.end(),

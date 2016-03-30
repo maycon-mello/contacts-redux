@@ -1,5 +1,5 @@
 import React from 'react';
-import store from '../storse/ContactStore';
+import store from '../store/ContactStore';
 import {
   Input,
   Button,
@@ -20,9 +20,7 @@ class ContactList extends React.Component {
   render() {
     let state = store.getState();
     return (
-      <div>
-
-      </div>
+      <div></div>
     );
   }
 
