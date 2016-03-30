@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import util from '../util';
 
+const router = express.Router();
 const Contact = mongoose.model('Contact');
 
 /**
