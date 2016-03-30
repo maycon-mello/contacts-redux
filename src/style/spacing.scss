@@ -1,0 +1,34 @@
+.m-1 {
+  margin: $margin;
+}
+.m-b-1 {
+  margin-bottom: $margin;
+}
+.m-b-2 {
+  margin-bottom: $margin * 2;
+}
+.m-l-1 {
+  margin-left: $margin;
+}
+.m-t-1 {
+  margin-top: $margin;
+}
+.m-r-1 {
+  margin-right: $margin;
+}
+
+.p-1 {
+  padding: $padding;
+}
+.p-b-1 {
+  padding-bottom: $padding;
+}
+.p-l-1 {
+  padding-left: $padding;
+}
+.p-t-1 {
+  padding-top: $padding;
+}
+.p-r-1 {
+  padding-right: $padding;
+}

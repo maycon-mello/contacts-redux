@@ -1,0 +1,41 @@
+{
+  "name": "pub",
+  "version": "0.0.0",
+  "description": "",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "babel-node": "babel-node --stage 0 --ignore='foo|bar|baz'",
+    "start": "nodemon ./build/server"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "gulp-browserify": "~0.5.1",
+    "gulp-rsync": "0.0.5",
+    "gulp-sass": "~2.0.4",
+    "gulp-sftp": "^0.1.5",
+    "gulp-shell": "~0.5.0",
+    "gulp-uglify": "~1.2.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "~4.3.4",
+    "rsyncwrapper": "^1.0.0"
+  },
+  "dependencies": {
+    "babel": "~5.8.23",
+    "babelify": "~6.3.0",
+    "body-parser": "~1.12.0",
+    "express": "~4.12.0",
+    "gulp": "~3.9.0",
+    "jquery": "~2.1.4",
+    "mongoose": "~3.8.24",
+    "react": "^0.14.7",
+    "react-bootstrap": "^0.28.3",
+    "react-dom": "~0.14.0",
+    "react-quill": "^0.4.1",
+    "react-router": "^2.0.0",
+    "react-tinymce": "~0.3.1",
+    "validator": "~3.32.0",
+    "method-override": "~2.3.5",
+    "express-load": "~1.1.14"
+  }
+}

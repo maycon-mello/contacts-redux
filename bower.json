@@ -1,0 +1,19 @@
+{
+  "name": "myNote2",
+  "version": "0.0.0",
+  "authors": [
+    "maycon-mello <maycon.mello@objectedge.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.1",
+    "bootstrap": "~3.3.6"
+  }
+}
