@@ -21,6 +21,7 @@ function initialize(app, config) {
   app.use(bodyParser.urlencoded({ extended: true}));
   app.use(cookieParser());
   app.use(compress());
+  console.log(config.root + '/public');
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
@@ -29,8 +30,8 @@ function initialize(app, config) {
 
   initControllers(app, config);
 
-  app.use(errorHandler);
-  app.use(currentEnv === 'development' ? devErrorHandler : prodErrorHandler)
+  //app.use(errorHandler);
+  //app.use(currentEnv === 'development' ? devErrorHandler : prodErrorHandler)
 };
 
 /**
@@ -70,7 +71,7 @@ function devErrorHandler(err, req, res, next) {
  * Initliaze controllers
  */
 function initControllers(app, config) {
-  let controllers = glob.sync(config.root + '/controllers/*.js');
+  let controllers = glob.sync(config.root + '/server/controllers/*.js');
 
   controllers.forEach(controller => require(controller).default(app));
 }

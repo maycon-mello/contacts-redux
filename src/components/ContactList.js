@@ -1,16 +1,24 @@
 import React from 'react';
-import store from '../store/ContactStore';
+import model from '../model/ContactListModel';
 import {
   Input,
   Button,
 } from 'react-bootstrap';
+import ListRow from './ListRow';
+import SearchBar from './SearchBar';
+
 
 class ContactList extends React.Component {
 
+  constructor() {
+    super();
+    this.state = model.getState();
+    console.log(model.state);
+  }
+
   componentDidMount() {
-    this.unsubscribe = store.subscribe(this, () => {
-      this.forceUpdate();
-    });
+    let _this = this;
+    this.unsubscribe = model.subscribe(this.setState.bind(this));
   }
 
   componentWillUnmount() {
@@ -18,9 +26,20 @@ class ContactList extends React.Component {
   }
 
   render() {
-    let state = store.getState();
+
+    let rows;
+    if (this.state.isFetching) {
+      rows = <tr><td>Carregando</td></tr>
+    } else {
+      rows = this.state.list.map((contact) => <ListRow id={contact._id} contact={contact} />);
+    }
+
     return (
-      <div></div>
+      <div>
+        <SearchBar />
+        <table>{rows}</table>
+        <button onClick={model.loadMore}>carregar mais</button>
+      </div>
     );
   }
 

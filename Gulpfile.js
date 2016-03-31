@@ -28,7 +28,8 @@ gulp.task('copy', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./src/server/**/*.js'], ['babel-server', 'copy']);
+  gulp.watch(['./src/server/**/*.js'], ['babel-server']);
+  gulp.watch(['./src/**/*.js'], ['browserify']);
   gulp.watch('./src/style/**/*.scss', ['sass']);
 });
 

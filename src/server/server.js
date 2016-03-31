@@ -32,7 +32,7 @@ function initDB() {
  * require js files from models directory
  */
 function initModels() {
-  let models = glob.sync(envConfig.root + '/models/*.js');
+  let models = glob.sync(envConfig.root + '/server/models/*.js');
   models.forEach((model) => {
     require(model);
   });
