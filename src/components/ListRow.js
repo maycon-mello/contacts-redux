@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default ({id, contact}) => {
   return (
-    <tr>
-      <td>{contact.name}</td>
-    </tr>
+    <div>
+      <Link to={`/contact/${contact._id}`}>{contact.name}</Link>
+    </div>
   );
 }

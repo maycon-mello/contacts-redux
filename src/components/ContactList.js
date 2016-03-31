@@ -3,6 +3,7 @@ import model from '../model/ContactListModel';
 import {
   Input,
   Button,
+  Panel
 } from 'react-bootstrap';
 import ListRow from './ListRow';
 import SearchBar from './SearchBar';
@@ -37,7 +38,9 @@ class ContactList extends React.Component {
     return (
       <div>
         <SearchBar />
-        <table>{rows}</table>
+        <Panel>
+          {rows}
+        </Panel>
         <button onClick={model.loadMore}>carregar mais</button>
       </div>
     );

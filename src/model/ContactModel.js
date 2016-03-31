@@ -56,10 +56,6 @@ class ListModel extends Model {
     this.notify(this.state);
   }
 
-  getContact(id) {
-    return this.state.list.filter(c => c._id === id)[0];
-  }
-
 }
 
 let model = new ListModel();

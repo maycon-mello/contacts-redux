@@ -43,9 +43,8 @@ gulp.task('watch', function() {
   gulp.watch(['./src/server/**/*.js'], ['babel-server']);
   gulp.watch(['./src/**/*.js'], ['browserify']);
   gulp.watch('./src/style/**/*.scss', ['sass']);
-  gulp.watch('./src/test/**/*.js', ['test']);
 });
 
-gulp.task('default', ['babel-server', 'browserify', 'copy', 'sass', 'test', 'watch'], function () {
+gulp.task('default', ['babel-server', 'browserify', 'copy', 'sass', 'watch'], function () {
 
 });

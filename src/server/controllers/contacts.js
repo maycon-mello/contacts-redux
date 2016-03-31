@@ -79,9 +79,13 @@ router.get('/', (req, res, next) => {
   let cursor,
       query = {},
       page = req.query.page || 0,
-      pageSize = 10;
+      pageSize = req.query.pageSize || 20;
 
-  cursor = Contact.find({ name: new RegExp(req.query.filter, "i") });
+  if (req.query.filterType) {
+    query[req.query.filterType] = new RegExp(req.query.filterValue, "i");
+  }
+  
+  cursor = Contact.find(query);
 
   cursor.exec().then(
     // success
