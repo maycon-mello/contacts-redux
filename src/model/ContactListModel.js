@@ -25,7 +25,12 @@ class ListModel extends Model {
 
   update() {
     let _this = this;
-    WS.get('/contacts?page=' + this.state.currentPage).then(list => _this.setList(list));
+    WS.get('/contacts?page=' + this.state.currentPage)
+      .then(list => _this.setList(list))
+      .catch(err => {
+        console.log(err);
+        _this.setList([]);
+      });
     this.state.isFetching = true;
     this.notify(this.state);
   }

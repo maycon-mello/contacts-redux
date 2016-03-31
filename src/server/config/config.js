@@ -10,7 +10,7 @@ const config = {
       app: {
         name: 'admin',
       },
-      port: 9000,
+      port: 5050,
       db: 'mongodb://104.236.90.64/danubio',
     },
 
@@ -19,7 +19,7 @@ const config = {
       app: {
         name: 'admin',
       },
-      port: 9000,
+      port: 5050,
       db: 'mongodb://104.236.90.64/danubio',
     },
 
@@ -28,7 +28,7 @@ const config = {
       app: {
         name: 'admin',
       },
-      port: 9000,
+      port: 5050,
       db: 'mongodb://104.236.90.64/danubio',
     }
   },
@@ -37,7 +37,7 @@ const config = {
     google: {
       clientID: '727594098415-fvhnbqgnkg54sfutds87g39fgkrcfuuk.apps.googleusercontent.com',
       clientSecret: 'Edqdqu9m88WJZJnUv_993mqW',
-      callbackURL: 'http://localhost:9000/auth/google/return',
+      callbackURL: 'http://localhost:5050/auth/google/return',
       apiOptions: {
         scope: ['profile', 'email'],
         hd: 'objectedge.com' //Restricted domain

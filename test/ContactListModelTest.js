@@ -9,8 +9,8 @@ describe('Contact List Model', function() {
     let list;
 
     beforeEach(function(done) {
-      new ContactListModel().subscribe(function(result) {
-        list = result;
+      new ContactListModel().subscribe(function(state) {
+        list = state.list;
         done();
       });
     });
