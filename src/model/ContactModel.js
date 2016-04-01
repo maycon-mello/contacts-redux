@@ -7,6 +7,7 @@ class ListModel extends Model {
     super();
     this.state = {
       list: [],
+      currentContact: null,
       currentPage: 0,
       filter: {},
       isFetching: false,

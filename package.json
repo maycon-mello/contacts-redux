@@ -5,6 +5,8 @@
   "main": "Gulpfile.js",
   "scripts": {
     "server": "nodemon dist/server/server.js",
+    "client": "nodemon dist/client.js",
+    "app": "npm run server | npm run client",
     "test": "mocha --compilers js:babel-core/register"
   },
   "author": "",

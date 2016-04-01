@@ -19,13 +19,18 @@ function initialize(app, config) {
   app.use(cookieParser());
   app.use(compress());
   console.log(config.root + '/public');
-  app.use(express.static(config.root + '/public'));
+  // app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 
 
 
   initControllers(app, config);
-
 };
 
 

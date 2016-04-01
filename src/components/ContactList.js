@@ -30,7 +30,7 @@ class ContactList extends React.Component {
 
     let rows;
     if (this.state.isFetching) {
-      rows = <tr><td>Carregando</td></tr>
+      rows = <div>Carregando</div>
     } else {
       rows = this.state.list.map((contact) => <ListRow id={contact._id} contact={contact} />);
     }

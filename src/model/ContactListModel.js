@@ -9,6 +9,7 @@ class ListModel extends Model {
       list: [],
       currentPage: 0,
       filter: {},
+      currentContact: null,
       isFetching: false,
     }
     this.update();
@@ -56,8 +57,26 @@ class ListModel extends Model {
     this.notify(this.state);
   }
 
+  setCurrentContact(contact) {
+    this.state.currentContact = contact;
+    this.notify(this.state);
+  }
+
   getContact(id) {
-    return this.state.list.filter(c => c._id === id)[0];
+    let contact = this.state.list.filter(c => c._id === id)[0];
+    console.log(contact);
+    if (contact) {
+      return contact;
+    }
+    console.log("fetch contact");
+    let _this = this;
+    WS.get('/contacts/' + id)
+      .then(contact => _this.setCurrentContact(contact))
+      .catch(err => {
+        console.log(err);
+        _this.setCurrentContact(null);
+      });
+    return null;
   }
 
 }
