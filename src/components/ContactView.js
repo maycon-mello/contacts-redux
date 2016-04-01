@@ -18,7 +18,7 @@ class ContactView extends React.Component {
     const phoneIcon = <Glyphicon glyph="earphone" />;
 
     let phones = contact.phones.map(p => {
-      let callButton = <a href={"tel:+" + p.number}><Button>{phoneIcon}</Button></a>;
+      let callButton = <a href={"tel:" + parseInt(p.number)}><Button>{phoneIcon}</Button></a>;
       return <Input type="text" buttonAfter={callButton} value={p.number} label={p.label} />
     });
 
