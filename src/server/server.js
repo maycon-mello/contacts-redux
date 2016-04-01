@@ -15,16 +15,15 @@ app.listen(envConfig.port, () => {
   console.log('Express server listening on port ' + envConfig.port);
 });
 
+
+// Client
 var client = express();
-
 client.use(express.static(envConfig.root + '/public'))
-
 client.get('/*', function (req, res) {
   res.sendFile(envConfig.root + '/public/index.html')
 });
-
-client.listen(6060, function () {
-  console.log('Running client on port 5151!');
+client.listen(5050, function () {
+  console.log('Running client on port 5050!');
 });
 
 

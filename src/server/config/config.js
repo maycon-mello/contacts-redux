@@ -10,7 +10,7 @@ const config = {
       app: {
         name: 'admin',
       },
-      port: 5050,
+      port: 6060,
       db: 'mongodb://104.236.90.64/danubio',
     },
 
@@ -19,7 +19,7 @@ const config = {
       app: {
         name: 'admin',
       },
-      port: 5050,
+      port: 6060,
       db: 'mongodb://104.236.90.64/danubio',
     },
 
@@ -28,7 +28,7 @@ const config = {
       app: {
         name: 'admin',
       },
-      port: 5050,
+      port: 6060,
       db: 'mongodb://104.236.90.64/danubio',
     }
   },

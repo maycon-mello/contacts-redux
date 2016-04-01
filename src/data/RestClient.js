@@ -1,7 +1,7 @@
 
 import request from 'superagent';
 
-const BASE_URL = 'http://' + window.location.hostname + ':5050'
+const BASE_URL = 'http://' + window.location.hostname + ':6060'
 
 module.exports =  {
 
