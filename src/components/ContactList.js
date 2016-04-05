@@ -9,6 +9,7 @@ import ListRow from './ListRow';
 import SearchBar from './SearchBar';
 
 
+
 class ContactList extends React.Component {
 
   constructor() {
@@ -38,6 +39,7 @@ class ContactList extends React.Component {
     return (
       <div>
         <SearchBar />
+        <Button>Test223</Button>
         <Panel>
           {rows}
         </Panel>

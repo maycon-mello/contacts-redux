@@ -8,7 +8,9 @@ var browserify = require('browserify')
 var babel = require('gulp-babel')
 var mocha = require('gulp-mocha')
 var gutil = require('gulp-util');
-
+var livereload = require('gulp-livereload');
+var lr = require('tiny-lr');
+var server = lr();
 //
 
 gulp.task('browserify', shell.task([
@@ -24,7 +26,7 @@ gulp.task('babel-server', function() {
 gulp.task('sass', function() {
   gulp.src('./src/style/main.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/public'));
+    .pipe(gulp.dest('./dist/public'))
 });
 
 gulp.task('test', function() {
@@ -41,9 +43,15 @@ gulp.task('copy', function() {
 });
 
 gulp.task('watch', function() {
+  livereload.listen();
   gulp.watch(['./src/server/**/*.js'], ['babel-server']);
   gulp.watch(['./src/**/*.js'], ['browserify', 'copy']);
   gulp.watch('./src/style/**/*.scss', ['sass']);
+  gulp.watch('./dist/public/bundle.js', ['livereload'])
+});
+
+gulp.task('livereload', function() {
+  livereload.reload('/bundle.js');
 });
 
 gulp.task('default', ['babel-server', 'browserify', 'copy', 'sass', 'watch'], function () {

@@ -3,6 +3,8 @@ import request from 'superagent';
 
 const BASE_URL = 'http://' + window.location.hostname + ':6060'
 
+var b = 2;
+
 module.exports =  {
 
   get: (resource) => {
