@@ -1,12 +1,15 @@
-var express = require('express');
-var app = express();
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
+var config = require('./webpack.config');
 
-app.use(express.static(__dirname + '/public'))
+new WebpackDevServer(webpack(config), {
+	publicPath: config.output.publicPath,
+	hot: true,
+	historyApiFallback: true
+}).listen(5151, 'localhost', function (err, result) {
+	if (err) {
+		console.log(err);
+	}
 
-app.get('/*', function (req, res) {
-  res.sendFile(__dirname + '/public/index.html')
-});
-
-app.listen(5151, function () {
-  console.log('Running client on port 5151!');
+	console.log('Listening at localhost:5050');
 });

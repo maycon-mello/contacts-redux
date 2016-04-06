@@ -39,11 +39,10 @@ class ContactList extends React.Component {
     return (
       <div>
         <SearchBar />
-        <Button>Test223</Button>
         <Panel>
           {rows}
         </Panel>
-        <button onClick={model.loadMore}>carregar mais</button>
+        <button onClick={model.loadMore}>Carregar mais</button>
       </div>
     );
   }
