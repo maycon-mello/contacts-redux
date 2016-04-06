@@ -9,7 +9,6 @@ import ListRow from './ListRow';
 import SearchBar from './SearchBar';
 
 
-
 class ContactList extends React.Component {
 
   constructor() {
