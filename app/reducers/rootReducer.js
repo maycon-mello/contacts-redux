@@ -4,7 +4,7 @@ import { LOGIN, LOGOUT } from '../actions/authentication';
 export default rootReducer;
 
 const initialState = {
-  contactList: [],
+  list: [],
   page: 0,
 };
 
@@ -13,7 +13,7 @@ function rootReducer(state = initialState, action) {
     case RECEIVE_CONTACTS:
       return {
         ...state,
-        contactList: [...state.contactList, ...action.payload.contactList]
+        list: [...state.list, ...action.payload.list]
       }
     case ADD_PAGE:
       return {

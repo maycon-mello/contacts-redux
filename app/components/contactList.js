@@ -18,7 +18,7 @@ class ContactList extends Component {
     const list = this.props.contactList.map(c => {
       return <div key={c._id}>{c.name}</div>
     });
-
+    console.log(this);
     return (
       <div>
         {list}
@@ -36,8 +36,9 @@ class ContactList extends Component {
 }
 
 function select(state) {
+  console.log(state);
   return {
-    contactList: state.contactList || []
+    contactList: state.contacts.list || []
   };
 }
 
