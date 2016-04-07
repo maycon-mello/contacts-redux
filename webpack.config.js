@@ -5,7 +5,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:5151',
     'webpack/hot/dev-server',
-    './src/main'
+    './app/index'
   ],
   output: {
     path: path.resolve(__dirname, "dist/public/"),
@@ -14,9 +14,9 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['react-hot', 'babel'], include: path.join(__dirname, 'src') },
-      { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader?sourceMap', include: path.join(__dirname, 'src/style')},
-      { test: /\.css$/, loader: 'style-loader!css-loader?sourceMap', include: path.join(__dirname, 'src/style')},
+      { test: /\.js$/, loaders: ['react-hot', 'babel'], include: path.join(__dirname, 'app') },
+      //{ test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader?sourceMap', include: path.join(__dirname, 'app/style')},
+      //{ test: /\.css$/, loader: 'style-loader!css-loader?sourceMap', include: path.join(__dirname, 'src/style')},
     ]
   },
   plugins: [
