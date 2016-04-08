@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-import { ADD_PAGE, RECEIVE_CONTACTS, SET_FILTER, RECEIVE_CONTACT } from '../constants/ActionTypes';
+import { ADD_PAGE, RECEIVE_CONTACTS, SET_FILTER } from '../constants/ActionTypes';
 import { HOST } from '../constants/Config';
 
 export function fetchContacts() {
@@ -17,21 +17,6 @@ export function fetchContacts() {
       })
       .then((json) => {
         dispatch(receiveContacts(json))
-      });
-  };
-}
-
-export function fetchContact(id) {
-
-  return (dispatch, getState) => {
-    let url = HOST + `/contacts/${id}`;
-
-    return fetch(url)
-      .then(response => {
-        return response.json();
-      })
-      .then((json) => {
-        dispatch(receiveContact(json))
       });
   };
 }
@@ -53,15 +38,6 @@ export function search(filter) {
     })
     return dispatch(fetchContacts())
   };
-}
-
-export function receiveContact(contact) {
-  return {
-    type: RECEIVE_CONTACT,
-    payload: {
-      contact
-    }
-  }
 }
 
 export function receiveContacts(list) {

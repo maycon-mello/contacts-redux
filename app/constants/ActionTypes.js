@@ -4,3 +4,4 @@ export const RECEIVE_CONTACTS = 'RECEIVE_CONTACTS';
 export const ADD_PAGE = 'ADD_PAGE';
 export const SET_FILTER = 'SET_FILTER';
 export const RECEIVE_CONTACT = 'RECEIVE_CONTACT';
+export const SAVE_CONTACT = 'SAVE_CONTACT';

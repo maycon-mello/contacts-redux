@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 
 // Actions
-import * as Actions from '../actions/contacts';
+import * as Actions from '../actions/contact';
 
 class Container extends Component {
 
