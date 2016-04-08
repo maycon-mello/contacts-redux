@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-import * as ContactActions from '../actions/contacts';
+
+// Actions
+import * as Actions from '../actions/contacts';
 
 class Container extends Component {
 
@@ -16,26 +18,22 @@ class Container extends Component {
     if (!contact) {
       return <div>Carregando...</div>
     }
-    // <ContactView contact={ contact }/>
+
     return (
-      <div>
-        {contact.name}
-      </div>
+      <div> {contact.name} </div>
     );
   }
 
 }
 
-function mapStateToProps(state) {
-  return {
-    contact: state.contacts.contact
-  };
-}
+Container.path = '/contact/:id'
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(ContactActions, dispatch)
-  }
-}
+const mapStateToProps = state => ({
+  contact: state.contacts.contact
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container);

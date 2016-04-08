@@ -8,20 +8,19 @@ import getHistory from './stores/getHistory';
 // Import styles
 import './style/main.scss';
 
-// Components
+// Containers
 import ContactList from './containers/contactList';
 import ContactView from './containers/contactView';
 
-let rootElement = document.getElementById('root');
 let store = configureStore();
 let history = getHistory(store);
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={ContactList}></Route>
-      <Route path="/contact/:id" component={ContactView}></Route>
+      <Route path={ContactList.path} component={ContactList} />
+      <Route path={ContactView.path} component={ContactView} />
     </Router>
   </Provider>,
-  rootElement
+  document.getElementById('root')
 );

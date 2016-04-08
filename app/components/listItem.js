@@ -3,6 +3,7 @@ import { Panel } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 function ListItem({contact}) {
+
   // Empty items
   if (contact.name.length === 0) {
     return <div></div>

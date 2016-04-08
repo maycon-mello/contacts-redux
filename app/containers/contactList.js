@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-import * as ContactActions from '../actions/contacts';
+
+// Actions
+import * as Actions from '../actions/contacts';
+
+// Components
 import ListItem from '../components/listItem';
 import Filter from '../components/filter';
 
-class ContactList extends Component {
+class Container extends Component {
 
   componentDidMount() {
     this.props.actions.fetchContacts();
   }
 
   render() {
-    const list = this.props.contactList.map(c => {
-      return <ListItem key={c._id} contact={c}/>
-    });
+    const list = this.props.list.map(
+      c => <ListItem key={c._id} contact={c}/>
+    );
 
-    // <button onClick={this.props.actions.loadMore.bind(this)}>Load more</button>
     return (
       <div>
         <Filter {...this.props} />
@@ -25,22 +28,17 @@ class ContactList extends Component {
     );
   }
 
-  loadMore() {
-    this.props.loadMore();
-  }
 }
 
-function mapStateToProps(state) {
-  return {
-    contactList: state.contacts.list || [],
-    filter: state.contacts.filter,
-  };
-}
+Container.path = '/';
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(ContactActions, dispatch)
-  }
-}
+const mapStateToProps = state => ({
+  list: state.contacts.list || [],
+  filter: state.contacts.filter,
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
