@@ -1,0 +1,26 @@
+.list-item-state {
+  position: absolute;
+  top:0;
+  right: 0;
+  padding: $padding / 2 $padding;
+  border-bottom-left-radius: 8px;
+  background: $color-green;
+  color: white;
+  text-transform: uppercase;
+}
+
+.list-item {
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+  }
+}
+.list-item-city {
+  text-transform: capitalize;
+  color: $color-grey;
+  font-style: italic;
+  margin-top: $margin / 2;
+}

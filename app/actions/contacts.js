@@ -1,16 +1,16 @@
 import fetch from 'isomorphic-fetch';
 
-export const RECEIVE_CONTACTS = 'RECEIVE_CONTACTS';
-export const LOAD_MORE = 'LOAD_MORE';
-export const ADD_PAGE = 'ADD_PAGE';
+import { ADD_PAGE, RECEIVE_CONTACTS, SET_FILTER, RECEIVE_CONTACT } from '../constants/ActionTypes';
+import { HOST } from '../constants/Config';
 
 export function fetchContacts() {
 
   return (dispatch, getState) => {
-    let state = getState();
-    let url = 'http://localhost:6060/contacts?page=' + state.contacts.page;
-    console.log("fetching contacts");
-    console.log("page " + state.contacts.page)
+    let { page, filter } = getState().contacts;
+    let url = HOST +
+    `/contacts?page=${page}`+
+    `&filterType=${filter.type}&filterValue=${filter.value}`;
+
     return fetch(url)
       .then(response => {
         return response.json();
@@ -21,16 +21,46 @@ export function fetchContacts() {
   };
 }
 
+export function fetchContact(id) {
+
+  return (dispatch, getState) => {
+    let url = HOST + `/contacts/${id}`;
+
+    return fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then((json) => {
+        dispatch(receiveContact(json))
+      });
+  };
+}
+
 export function loadMore() {
   return dispatch => {
-    dispatch(addPage())
+    dispatch({
+      type: ADD_PAGE,
+    })
     return dispatch(fetchContacts())
   };
 }
 
-export function addPage() {
+export function search(filter) {
+  return dispatch => {
+    dispatch({
+      type: SET_FILTER,
+      filter,
+    })
+    return dispatch(fetchContacts())
+  };
+}
+
+export function receiveContact(contact) {
   return {
-    type: ADD_PAGE,
+    type: RECEIVE_CONTACT,
+    payload: {
+      contact
+    }
   }
 }
 

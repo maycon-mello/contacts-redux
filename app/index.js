@@ -1,20 +1,26 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router'
+import configureStore from './stores/configureStore';
+import getHistory from './stores/getHistory';
 
-import {store, history} from './stores/createStore';
-import ContactList from './components/contactList';
+// Import styles
+import './style/main.scss';
+
+// Components
+import ContactList from './containers/contactList';
+import ContactView from './containers/contactView';
 
 let rootElement = document.getElementById('root');
+let store = configureStore();
+let history = getHistory(store);
 
-import style from './style/main.scss';
-
-render(
+ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={ContactList}></Route>
-      <Route path="/contact/:contactId" component={ContactList}></Route>
+      <Route path="/contact/:id" component={ContactView}></Route>
     </Router>
   </Provider>,
   rootElement

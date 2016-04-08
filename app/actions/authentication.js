@@ -1,5 +1,4 @@
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';
+import { LOGIN, LOGOUT } from '../constants/ActionTypes';
 
 export function getAuth() {
   let authentication = JSON.parse(localStorage.getItem('authentication')) || { apiToken: '', uuId: '' };

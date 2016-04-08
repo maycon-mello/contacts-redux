@@ -1,6 +1,9 @@
-import { LOGIN, LOGOUT } from '../actions/authentication';
+import { applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 
-export function authenticationMiddleware() {
+import { LOGIN, LOGOUT } from '../constants/ActionTypes';
+
+function authenticationMiddleware() {
   return next => action => {
     next(action);
 
@@ -10,3 +13,5 @@ export function authenticationMiddleware() {
 
   };
 }
+
+export default applyMiddleware(thunkMiddleware, authenticationMiddleware);
