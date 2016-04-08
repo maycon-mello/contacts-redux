@@ -1,6 +1,6 @@
 import path from 'path';
 
-const rootPath = path.normalize(__dirname + '/../..');
+const rootPath = path.normalize(__dirname + '/..');
 
 export default {
     root: rootPath,

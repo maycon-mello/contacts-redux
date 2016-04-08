@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import glob from 'glob';
 import bodyParser from 'body-parser';
 import compress from 'compression';
 import methodOverride from 'method-override';

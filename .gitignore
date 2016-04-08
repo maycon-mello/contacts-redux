@@ -1,4 +1,5 @@
 bower_components
-dist
+build
+app/public/vendor
 node_modules
 start.sh

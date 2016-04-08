@@ -17,10 +17,10 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler));
 
-app.use(express.static('dist/public'));
+app.use(express.static('build/public'));
 
 app.get("/*", function(req, res) {
-  res.sendFile('./app/index.html')
+  res.sendFile(__dirname + '/build/public/index.html')
 });
 
 app.listen(port, function(error) {
